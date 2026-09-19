@@ -1,0 +1,46 @@
+// Евгенидзе Лука Важаевич ПИ1-1 
+составный условия и оператлр switch
+
+#include <stdio.h>
+
+int main(void) {
+    int x;
+    int count = 0;
+    int positive = 0;
+    long long sum = 0;
+
+    while (count < 100) {
+
+        if (scanf("%d", &x) != 1) {
+            printf("Ошибка ввода.\n");
+            break;
+        }
+
+        /* Ноль завершает ввод и не входит в статистику */
+        if (x == 0) {
+            break;
+        }
+
+        /* Проверка диапазона */
+        if (x < -1000 || x > 1000) {
+            printf("Ошибка: число вне диапазона [-1000; 1000].\n");
+            continue;
+        }
+
+        /* Обновление статистики */
+        count++;
+        sum += x;
+
+        if (x > 0) {
+            positive++;
+        }
+
+        /* После 100-го принятого числа цикл закончится */
+    }
+
+    printf("%d\n", count);
+    printf("%lld\n", sum);
+    printf("%d\n", positive);
+
+    return 0;
+}
